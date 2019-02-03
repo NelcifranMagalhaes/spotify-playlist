@@ -1,47 +1,46 @@
-// import React, {Component} from 'react';
+import React, {Component} from 'react';
 // import {Link} from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
+import {Card , Content,Columns} from 'react-bulma-components';
 
-// class Playlist extends Component {
-//   constructor(props) {
-//     super(props);
 
-//     this.state = {
-//       questions: null,
-//     };
-//   }
+class Playlist extends Component {
+  constructor(props) {
+    super(props);
 
-//   async componentDidMount() {
-//     const questions = (await axios.get('http://localhost:8081/')).data;
-//     this.setState({
-//       questions,
-//     });
-//   }
+    this.state = {
+      playlist: [],
+    };
+  }
 
-//   render() {
-//     return (
-//       <div className="container">
-//         <div className="row">
-//           {this.state.questions === null && <p>Loading questions...</p>}
-//           {
-//             this.state.questions && this.state.questions.map(question => (
-//               <div key={question.id} className="col-sm-12 col-md-4 col-lg-3">
-//                 <Link to={`/question/${question.id}`}>
-//                   <div className="card text-white bg-success mb-3">
-//                     <div className="card-header">Answers: {question.answers}</div>
-//                     <div className="card-body">
-//                       <h4 className="card-title">{question.title}</h4>
-//                       <p className="card-text">{question.description}</p>
-//                     </div>
-//                   </div>
-//                 </Link>
-//               </div>
-//             ))
-//           }
-//         </div>
-//       </div>
-//     )
-//   }
-// }
+componentDidMount() {
+    axios.get('http://localhost:4000/')
+      .then(res => {
+        const playlist = res.data;
+        this.setState({ playlist });
+      })
+  }
 
-// export default Questions;
+
+  render() {
+    return (
+      <Columns>
+        { this.state.playlist.map((playlist,index) =>
+          <Columns.Column key={index +'key' }>
+          <Card key={'key'+ index}>
+            <Card.Content>
+              <Content>
+                {playlist.name}
+                <br />
+              </Content>
+            </Card.Content>
+          </Card>
+        </Columns.Column>
+         )}
+      </Columns>
+ 
+    )
+  }
+}
+export default Playlist;
+

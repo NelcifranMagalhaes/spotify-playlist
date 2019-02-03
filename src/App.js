@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar/NavBar';
+import Playlist from './Playlist/Playlist';
+import { Box } from 'react-bulma-components';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Box className="App">
         <NavBar/>
-        <p>Fazendo a parada...</p>
-      </div>
+        <span> </span>
+        <Playlist/>
+      </Box>
     );
   }
 }
