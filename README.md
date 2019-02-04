@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 	### react-bulma-components
 	### axios
 	### react-router
-##Use
+## Use
 	This API consult [https://spotifyapiplaylists.herokuapp.com/](https://spotifyapiplaylists.herokuapp.com/) and list my 
 	spotify playlist.
 	For use a localhost api change `axios.get('https://spotifyapiplaylists.herokuapp.com/')` for `axios.get('http://localhost:your_port/')`.
