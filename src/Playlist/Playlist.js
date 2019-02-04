@@ -14,7 +14,8 @@ class Playlist extends Component {
   }
 
 componentDidMount() {
-    axios.get('http://localhost:4000/')
+
+    axios.get('https://spotifyapiplaylists.herokuapp.com/') //You can change url for 'http://localhost:4000/' for test
       .then(res => {
         const playlist = res.data;
         this.setState({ playlist });
